@@ -21,7 +21,7 @@ class UserController
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
             $name = trim($_POST['name']);
             $this->userService->createUser($name, $_POST['apellido'], $_POST['email'], $_POST['telefono'], $_POST['username']);
-             $this->showUsers();
+            header("Location: index.php");
         } else {
             echo "Invalid input!";
         }
@@ -31,7 +31,7 @@ class UserController
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
             $name = trim($_POST['name']);
             $this->userService->updateUser($_POST['id'],$name);
-             $this->showUsers();
+            header("Location: index.php");
         } else {
             echo "Invalid input!";
         }
@@ -41,7 +41,7 @@ class UserController
         if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
         
             $this->userService->deleteUser($_POST['id']);
-             $this->showUsers();
+            header("Location: index.php");
         } else {
             echo "Invalid input!";
         }
