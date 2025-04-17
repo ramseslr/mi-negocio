@@ -17,6 +17,10 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Nombre de usuario</th>
+                <th>Email</th>
+                <th>Telefono</th>
                 <th>Acciones</th>
 
             </tr>
@@ -33,7 +37,19 @@
                         <?= htmlspecialchars($user->getName()) ?>
                     </td>
                     <td>
-                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUpdate" onclick="updateUser('<?=$user->getId() ?>','<?=$user->getName() ?>')"
+                        <?= htmlspecialchars($user->getApellido()) ?>
+                    </td>
+                    <td>
+                        <?= htmlspecialchars($user->getNombre_de_usuario()) ?>
+                    </td>
+                    <td>
+                        <?= htmlspecialchars($user->getEmail()) ?>
+                    </td>
+                    <td>
+                        <?= htmlspecialchars($user->getTelefono()) ?>
+                    </td>
+                    <td>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUpdate" onclick="updateUser('<?=$user->getId() ?>','<?=$user->getName() ?>')"
                      >Actualizar</button>
                      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete" onclick="deleteUser('<?=$user->getId() ?>','<?=$user->getName() ?>')"
                      >Borrar</button>
@@ -51,10 +67,37 @@
     <? }?>
 
      <form action="index.php?action=addUser" method="post">
-     <div class="input-group mb-3">
-  <input type="text" name="name" class="form-control" placeholder="Enter name" aria-describedby="button-addon2" required>
-  <button type="submit"class="btn btn-primary" id="button-addon2">Add User</button>
-  </div>
+   <div class="row" >
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label>Nombre</label>
+        <input type="text" name="apellido" class="form-control" placeholder="Ingrese nombre"  required>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <label>Apellido</label>
+        <input type="text" name="name" class="form-control" placeholder="Ingrese apellido"  required>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Nombre de usuario</label>
+          <input type="text" name="username" class="form-control" placeholder="Ingrese username"  required>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Email</label>
+          <input type="text" name="email" class="form-control" placeholder="Ingrese email"  required>
+        </div>
+        <div>
+          <label>Telefono</label>
+          <input type="text" name="telefono" class="form-control" placeholder="Ingrese telefono"  required>
+
+        </div>
+
+
+
+
+   </div> 
+     
+     <footer>
+  <button type="submit"class="btn btn-primary" id="button-addon2">Añadir datos</button>
+  </footer>
 </form> 
 
 </div>

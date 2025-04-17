@@ -20,7 +20,7 @@ class UserController
     public function addUser() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
             $name = trim($_POST['name']);
-            $this->userService->createUser($name);
+            $this->userService->createUser($name, $_POST['apellido'], $_POST['email'], $_POST['telefono'], $_POST['username']);
              $this->showUsers();
         } else {
             echo "Invalid input!";

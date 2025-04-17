@@ -20,19 +20,28 @@ class UserService
         $users = [];
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rows as $value) {
+            
             $user = new User();
             $user->setId($value['id']);
             $user->setName($value['name']);
+           $user->setApellido($value['apellido']);
+            $user->setNombre_de_usuario($value['nombre_de_usuario']);
+            $user->setEmail($value['email']);
+            $user->setTelefono($value['telefono']);
+            
             $users[] = $user;
         }
-
+       
 
         return $users;
     }
 
-    public function createUser($name)
+    public function createUser($name, $apellido, $email, $telefono, $nombre_de_usuario)
     {
-        $stmt = $this->conn->prepare("INSERT INTO users (name) values ('".$name."')");
+        $stmt = $this->conn->prepare("INSERT INTO users (name, apellido, email, telefono, nombre_de_usuario) values ('".$name."', '".$apellido."', '".$email."', '".$telefono."', '".$nombre_de_usuario."')");
+
+        
+                                            
         // $stmt->execute();
 
        /* $users = [];
@@ -83,4 +92,5 @@ class UserService
 
         return $stmt->execute();
     }
+
 }
