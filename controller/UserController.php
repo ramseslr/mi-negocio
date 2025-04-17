@@ -17,13 +17,33 @@ class UserController
         require 'view/User.php';
     }
 
-    /*public function addUser() {
+    public function addUser() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
             $name = trim($_POST['name']);
             $this->userService->createUser($name);
-            $this->showUsers();
+             $this->showUsers();
         } else {
             echo "Invalid input!";
         }
-    }*/
+    }
+
+    public function updateUser() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
+            $name = trim($_POST['name']);
+            $this->userService->updateUser($_POST['id'],$name);
+             $this->showUsers();
+        } else {
+            echo "Invalid input!";
+        }
+    }
+
+    public function deleteUser() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
+        
+            $this->userService->deleteUser($_POST['id']);
+             $this->showUsers();
+        } else {
+            echo "Invalid input!";
+        }
+    }
 }

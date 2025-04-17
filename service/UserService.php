@@ -30,21 +30,57 @@ class UserService
         return $users;
     }
 
-    public function createUser()
+    public function createUser($name)
     {
-        $stmt = $this->conn->prepare("INSERT INTO users");
-        $stmt->execute();
+        $stmt = $this->conn->prepare("INSERT INTO users (name) values ('".$name."')");
+        // $stmt->execute();
 
-        $users = [];
+       /* $users = [];
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rows as $value) {
             $user = new User();
             $user->setId($value['id']);
             $user->setName($value['name']);
-            $users[] = $user;
+            $users[] = $user; 
         }
+        */
 
+        return $stmt->execute();
+    }
 
-        return $users;
+    public function updateUser($id,$name)
+    {
+        $stmt = $this->conn->prepare("UPDATE  users SET name = '".$name."' WHERE id = '".$id."'");
+        // $stmt->execute();
+
+       /* $users = [];
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($rows as $value) {
+            $user = new User();
+            $user->setId($value['id']);
+            $user->setName($value['name']);
+            $users[] = $user; 
+        }
+        */
+
+        return $stmt->execute();
+    }
+
+    public function deleteUser($id)
+    {
+        $stmt = $this->conn->prepare("DELETE FROM  users WHERE id = '".$id."'");
+        // $stmt->execute();
+
+       /* $users = [];
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($rows as $value) {
+            $user = new User();
+            $user->setId($value['id']);
+            $user->setName($value['name']);
+            $users[] = $user; 
+        }
+        */
+
+        return $stmt->execute();
     }
 }
