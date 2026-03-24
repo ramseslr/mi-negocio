@@ -57,12 +57,12 @@ class UserService
         return $stmt->execute();
     }
 
-    public function updateUser($id, $name, $apellido, $nombre_de_usuario)
+    public function updateUser($id, $name, $apellido, $nombre_de_usuario, $email, $telefono)
     {
 
-        $stmt = $this->conn->prepare("UPDATE  users SET name = '" . $name . "',apellido='" . $apellido . "' ,nombre_de_usuario='" . $nombre_de_usuario . "' WHERE id = '" . $id . "'");
+        $stmt = $this->conn->prepare("UPDATE users SET name='" . $name . "', apellido='" . $apellido . "', nombre_de_usuario='" . $nombre_de_usuario . "', email='" . $email .  "', telefono='" . $telefono . "' WHERE id=" . $id);
         // $stmt->execute();
-
+ //  $stmt = $this->conn->prepare("UPDATE users SET name='" . $name . "', apellido='" . $apellido . "', nombre_de_usuario='" . $nombre_de_usuario . "', email='" . $email . "' WHERE id=" . $id);
         /* $users = [];
          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
          foreach ($rows as $value) {

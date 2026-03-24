@@ -1,11 +1,13 @@
-function updateUser(id, name, apellido, nombre_de_usuario) {
+function updateUser(id, name, apellido, nombre_de_usuario, email, telefono) {
 
-    console.log(nombre_de_usuario)
+    
     var form = document.getElementById("form_update");
     form.elements["id"].value = id;
     form.elements["name"].value = name;
     form.elements["apellido"].value = apellido;
     form.elements["nombre_de_usuario"].value = nombre_de_usuario;
+    form.elements["email"].value = email;
+    form.elements["telefono"].value = telefono;
 
 }
 

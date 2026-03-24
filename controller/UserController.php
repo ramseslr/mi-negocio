@@ -34,7 +34,9 @@ class UserController
             $name = trim($_POST['name']);
             $apellido = trim($_POST['apellido']);
             $nombre_de_usuario = trim($_POST['nombre_de_usuario']);
-            $this->userService->updateUser($_POST['id'], $name, $apellido, $nombre_de_usuario);
+            $email = trim($_POST['email']);
+            $telefono = trim($_POST['telefono']);
+            $this->userService->updateUser($_POST['id'],$name, $apellido,$nombre_de_usuario, $email, $telefono);
             header("Location: index.php");
         } else {
             echo "Invalid input!";

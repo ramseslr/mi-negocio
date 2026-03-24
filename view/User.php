@@ -70,10 +70,13 @@
                 <?= htmlspecialchars($user->getTelefono()) ?>
               </td>
               <td>
-                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUpdate" onclick="updateUser('<?= $user->getId() ?>',
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUpdate" onclick="updateUser
+                 ('<?= $user->getId() ?>',
                   '<?= $user->getName() ?>',
                   '<?= $user->getApellido() ?>',
-                  '<?= $user->getNombre_de_usuario() ?>'
+                  '<?= $user->getNombre_de_usuario() ?>',
+                  '<?= $user->getEmail() ?>',
+                  '<?= $user->getTelefono() ?>'
                   )">Actualizar</button>
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete"
                   onclick="deleteUser('<?= $user->getId() ?>','<?= $user->getName() ?>')">Borrar</button>
@@ -152,6 +155,14 @@
           <label for="nombre_de_usuario"><b>Nombre usuario</b></label>
           <input class="form-control" type="text" id="nombre_de_usuario" name="nombre_de_usuario"
             placeholder="Enter nombre_usuario" required>
+
+          <label for="email"><b>Email</b></label>
+          <input class="form-control" type="text" id="email" name="email"
+            placeholder="Enter Email" required>  
+
+          <label for="telefono"><b>Telefono</b></label>
+          <input class="form-control" type="text" id="telefono" name="telefono"
+            placeholder="Enter Telefono" required>
 
 
 
