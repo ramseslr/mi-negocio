@@ -17,7 +17,8 @@ class UserController
         require 'view/User.php';
     }
 
-    public function addUser() {
+    public function addUser()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
             $name = trim($_POST['name']);
             $this->userService->createUser($name, $_POST['apellido'], $_POST['email'], $_POST['telefono'], $_POST['username']);
@@ -27,19 +28,23 @@ class UserController
         }
     }
 
-    public function updateUser() {
+    public function updateUser()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
             $name = trim($_POST['name']);
-            $this->userService->updateUser($_POST['id'],$name);
+            $apellido = trim($_POST['apellido']);
+            $nombre_de_usuario = trim($_POST['nombre_de_usuario']);
+            $this->userService->updateUser($_POST['id'], $name, $apellido, $nombre_de_usuario);
             header("Location: index.php");
         } else {
             echo "Invalid input!";
         }
     }
 
-    public function deleteUser() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
-        
+    public function deleteUser()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
             $this->userService->deleteUser($_POST['id']);
             header("Location: index.php");
         } else {
