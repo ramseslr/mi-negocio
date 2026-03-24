@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+
+    <!-- Logo o nombre -->
+    <a class="navbar-brand" href="#">Mi App</a>
+
+    <!-- Botón responsive -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Contenido -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="d-flex gap-2">
+        <a href="?action=showClientes" class="btn btn-outline-light">Clientes</a>
+        <a href="?action=showUsers" class="btn btn-primary">Usuario</a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
 <head>
   <title>User List</title>
 </head>
